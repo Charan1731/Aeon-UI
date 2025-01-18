@@ -6,7 +6,7 @@ export function AnimatedPinDemo() {
   return (
     <div className="h-[40rem] w-full flex items-center justify-center ">
       <PinContainer
-        title="/ui-unify.com"
+        title="/aeon-ui.com"
         href="https://twitter.com/pankajkumar_dev"
       >
         <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">

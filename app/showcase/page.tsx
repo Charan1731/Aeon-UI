@@ -23,7 +23,7 @@ export default function Showcase() {
       <div className="flex align-middle h-full text-2xl sm:text-4xl mt-20 sm:mt-40 text-center text-gray-700 dark:text-gray-200">
         <Marquee pauseOnHover className="[--duration:10s]">
           <h1 className="text-2xl font-bold text-red-800 dark:text-red-400">
-            UI-Unify Waiting...
+            aeon-ui Waiting...
           </h1>
         </Marquee>
       </div>

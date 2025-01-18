@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // Read your file
-const filePath = 'D:/cohort course codes/ui-unify/code-snippets/file.tsx';
+const filePath = 'D:/cohort course codes/aeon-ui/code-snippets/file.tsx';
 let fileContent = fs.readFileSync(filePath, 'utf-8');
 
 // Replace unescaped backticks with escaped ones
