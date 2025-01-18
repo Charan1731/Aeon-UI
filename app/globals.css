@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Theme Colors */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --muted-foreground: #6b7280;
+  --primary: #ffa500;
+  --border: #e5e7eb;
+  --scrollbar-bg: #f1f1f1;
+  --scrollbar-thumb: #ffa500;
+  --scrollbar-thumb-hover: #555;
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --muted-foreground: #6b7280;
+    --primary: #ffa500;
+    --border: #e5e7eb;
+    --scrollbar-bg: #333;
+    --scrollbar-thumb: #f87171;
+    --scrollbar-thumb-hover: #888;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-white text-black dark:bg-[#121212] dark:text-white;
+    scroll-behavior: smooth;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
