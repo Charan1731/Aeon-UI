@@ -42,8 +42,8 @@ export default function PreviewPage() {
       <header className="text-center mb-10">
         <h1 className="sm:text-4xl text-3xl font-bold text-gray-800 dark:text-gray-200">
           <span>
-            <span className="text-red-400">UÍ</span>
-            -Unify
+            <span className="text-red-400">Aeon</span>
+            -Ui
           </span>{' '}
           Component Source Code
         </h1>

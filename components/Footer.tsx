@@ -15,7 +15,7 @@ const navLinks = [
 
 const Footer: React.FC<FooterProps> = ({
   year = new Date().getFullYear(),
-  email = 'support@uiunify.com',
+  email = 'support@uiUi.com',
 }) => {
   return (
     <footer className=" dark:text-gray-300 py-8  mt-10">
@@ -24,12 +24,12 @@ const Footer: React.FC<FooterProps> = ({
           <div className="space-y-4">
             <h3 className="text-lg font-semibold flex">
               <ChartNoAxesGantt />
-              UÍ-Unify
+              Aeon-UI
             </h3>
             <p className="text-sm">
               The Ultimate UI Library Collection. Multiple UI, One Platform.
             </p>
-            <p className="text-sm">© {year} UÍ-Unify. All rights reserved.</p>
+            <p className="text-sm">© {year} Aeon-UI. All rights reserved.</p>
           </div>
 
           <div>
@@ -113,7 +113,7 @@ const Footer: React.FC<FooterProps> = ({
         </div>
 
         <div className="mt-8 pt-8 border-t border-slate-300 text-center text-sm dark:text-gray-200">
-          <p>UÍ-Unify is a registered trademark of UÍ-Unify, Inc.</p>
+          <p>Aeon-UI is a registered trademark of Aeon-UI, Inc.</p>
         </div>
       </div>
     </footer>

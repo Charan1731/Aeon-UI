@@ -23,7 +23,7 @@ const navLinks = [
 const socialLinks = [
   {
     name: 'GitHub',
-    href: 'https://github.com/pankajkumardev/aeon-ui',
+    href: 'https://github.com/charan1731/Aeon-UI',
     icon: GithubIcon,
   },
   {
@@ -53,8 +53,8 @@ export function Navigation() {
           <Link href="/" className="flex items-center space-x-2">
             <ChartNoAxesGantt />
             <span className="font-bold text-xl text-red-400">
-              UÍ
-              <span className="text-gray-800 dark:text-[#E7E9EC]">-Unify</span>
+              Aeon
+              <span className="text-gray-800 dark:text-[#E7E9EC]">-Ui</span>
             </span>
           </Link>
           <nav className="hidden md:flex gap-1">

@@ -20,7 +20,7 @@ export function GlareCardDemo() {
           strokeLinecap="round"
         />
       </svg>
-      <p className="text-white font-bold text-xl mt-4">UÍ-Unify</p>
+      <p className="text-white font-bold text-xl mt-4">Aeon-UI</p>
     </GlareCard>
   );
 }

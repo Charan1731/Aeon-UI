@@ -11,7 +11,7 @@ export function HoverBorderGradientDemo() {
         className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
       >
         <AceternityLogo />
-        <span>UÍ-Unify</span>
+        <span>Aeon-UI</span>
       </HoverBorderGradient>
     </div>
   );

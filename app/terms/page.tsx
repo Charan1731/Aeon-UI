@@ -8,8 +8,8 @@ export default function TermsOfService() {
             <header className="text-center mt-10 pb-10">
                 <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-200">
                     <span className="font-bold text-red-400">
-                        UÍ
-                        <span className="text-gray-800 dark:text-[#E7E9EC]">-Unify</span>
+                        Aeon
+                        <span className="text-gray-800 dark:text-[#E7E9EC]">-Ui</span>
                     </span>{' '}
                     Terms of Service
                 </h1>
