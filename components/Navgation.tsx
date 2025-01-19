@@ -57,11 +57,13 @@ export function Navigation() {
               <span className="text-gray-800 dark:text-[#E7E9EC]">-Ui</span>
             </span>
           </Link>
-          <nav className="hidden md:flex gap-1">
+          <nav className="hidden md:flex gap-1 ">
             {navLinks.map((link) => (
+              <div>
               <NavLink key={link.href} href={link.href}>
                 {link.name}
               </NavLink>
+              </div>
             ))}
           </nav>
         </div>

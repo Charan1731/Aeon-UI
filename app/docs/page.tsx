@@ -1,10 +1,5 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from '../../components/ui/accordion';
-import { Info, Package, Rocket, CheckCircle } from 'lucide-react';
+
+import { Info, Package, Rocket } from 'lucide-react';
 
 export default function Docs() {
   return (
@@ -83,51 +78,6 @@ export default function Docs() {
             the component’s installation guide.
           </li>
         </ol>
-      </section>
-
-      <section>
-        <div className="flex items-center gap-4 mb-6">
-          <CheckCircle className="w-6 h-6 text-orange-500" />
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-            Frequently Asked Questions (FAQ)
-          </h2>
-        </div>
-        <Accordion type="single" collapsible className="space-y-4">
-          <AccordionItem value="q1">
-            <AccordionTrigger>What is aeon-ui?</AccordionTrigger>
-            <AccordionContent>
-              aeon-ui is a collection of reusable components and styles from
-              multiple UI libraries, providing a unified platform for building
-              modern web applications.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="q2">
-            <AccordionTrigger>What is a UI Library?</AccordionTrigger>
-            <AccordionContent>
-              A UI library is a collection of reusable components and styles
-              designed to streamline the development of web applications.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="q3">
-            <AccordionTrigger>How do I install aeon-ui?</AccordionTrigger>
-            <AccordionContent>
-              Each component in aeon-ui has its own installation guide, which
-              you can find on the components page. You can use either the
-              one-command setup or manually integrate components as needed.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="q4">
-            <AccordionTrigger>Can I customize components?</AccordionTrigger>
-            <AccordionContent>
-              Yes, all components in aeon-ui are highly customizable. Modify
-              styles, configurations, and functionalities to suit your
-              requirements.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
       </section>
     </div>
   );

@@ -18,10 +18,12 @@ export function NavLink({ href, children }: NavLinkProps) {
       href={href}
       prefetch={true}
       className={cn(
-        'px-4 py-2 rounded-md text-sm font-medium transition-colors',
+        'relative px-4 py-2 rounded-md text-sm font-medium transition-all duration-200',
         isActive
-          ? 'bg-secondary text-red-400'
-          : 'text-muted-foreground hover:text-gray-400'
+          ? 'text-red-400'
+          : 'text-muted-foreground hover:text-red-400 dark:hover:text-red-400',
+        'after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-red-400 dark:after:bg-red-400 after:scale-x-0 after:origin-left after:transition-transform',
+        !isActive && 'hover:after:scale-x-100'
       )}
     >
       {children}
