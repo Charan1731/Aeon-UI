@@ -74,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({
             <h4 className="text-md font-semibold mb-4">Connect With Us</h4>
             <div className="flex space-x-4 mb-4">
               <a
-                href="https://github.com/pankajkumardev"
+                href="https://github.com/Charan1731"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-gray-400"
@@ -83,7 +83,7 @@ const Footer: React.FC<FooterProps> = ({
                 <span className="sr-only">GitHub</span>
               </a>
               <a
-                href="https://x.com/pankajkumar_dev"
+                href="https://x.com/CharanR18433412"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-red-400"
@@ -92,7 +92,7 @@ const Footer: React.FC<FooterProps> = ({
                 <span className="sr-only">Twitter</span>
               </a>
               <a
-                href="https://linkedin.com/in/Pankajkumardev0"
+                href="https://www.linkedin.com/in/charandeep-reddy-2640a4301/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-red-700"

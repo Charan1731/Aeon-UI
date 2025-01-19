@@ -26,13 +26,13 @@ export function ThemeToggle() {
       aria-label="Toggle theme"
     >
       <SunIcon
-        className={`absolute inset-0 h-5 w-5 m-auto transition-all ${
-          (theme === 'light' || resolvedTheme === 'light') ? 'scale-100 rotate-0' : 'scale-0 -rotate-90'
+        className={`absolute inset-0 h-5 w-5 hover:text-red-400 m-auto transition-all ${
+          (theme === 'dark' || resolvedTheme === 'dark') ? 'scale-100 rotate-0' : 'scale-0 -rotate-90'
         }`}
       />
       <MoonIcon
-        className={`absolute inset-0 h-5 w-5 m-auto transition-all ${
-          (theme === 'dark' || resolvedTheme === 'dark') ? 'scale-100 rotate-0' : 'scale-0 rotate-90'
+        className={`absolute inset-0 h-5 w-5 m-auto hover:text-red-400 transition-all ${
+          (theme === 'light' || resolvedTheme === 'light') ? 'scale-100 rotate-0' : 'scale-0 rotate-90'
         }`}
       />
     </button>

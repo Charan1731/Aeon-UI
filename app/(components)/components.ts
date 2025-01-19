@@ -3,8 +3,8 @@ export const components = [
     title: 'Follow for updates',
     children: [
       {
-        label: 'Twitter @pankajkumar_dev',
-        Link: 'https://twitter.com/pankajkumar_dev',
+        label: 'Twitter @CharanR18433412',
+        Link: 'https://x.com/CharanR18433412',
       },
     ],
   },

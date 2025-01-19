@@ -28,7 +28,7 @@ const socialLinks = [
   },
   {
     name: 'Twitter',
-    href: 'https://twitter.com/pankajkumar_dev',
+    href: "https://x.com/CharanR18433412",
     icon: TwitterIcon,
   },
 ] as const;
@@ -72,7 +72,7 @@ export function Navigation() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-md text-muted-foreground hover:text-foreground transition-colors"
+              className="p-2 rounded-md text-muted-foreground hover:text-foreground transition-colors hover:text-red-400"
               aria-label={link.name}
             >
               <link.icon className="h-5 w-5" />

@@ -85,7 +85,7 @@ export function Hero() {
               as="button"
               onClick={() =>
                 (window.location.href =
-                  'https://github.com/PankajKumardev/aeon-ui')
+                  'https://github.com/Charan1731/aeon-ui')
               }
             >
               <span className="flex gap-2 text-base font-medium">
