@@ -59,11 +59,9 @@ export function Navigation() {
           </Link>
           <nav className="hidden md:flex gap-1 ">
             {navLinks.map((link) => (
-              <div>
               <NavLink key={link.href} href={link.href}>
                 {link.name}
               </NavLink>
-              </div>
             ))}
           </nav>
         </div>
