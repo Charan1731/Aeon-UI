@@ -34,7 +34,7 @@ export default function PromptPage() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:3000/api/ai', {
+      const response = await axios.post('https://aeon-ui.vercel.app//api/ai', {
         prompt: preprompt + prompt,
       });
 
@@ -81,7 +81,7 @@ export default function PromptPage() {
           </p>
             <div className="mt-10">
             <textarea
-              className="rounded-lg w-full h-32 p-4 border border-red-300 focus:outline-none focus:ring-1 focus:ring-red-400"
+              className="rounded-lg w-full h-32 p-4 border-2 border-red-300 focus:outline-none focus:ring-1 focus:ring-red-400"
               placeholder="Enter your prompt here..."
               onChange={(e) => setPrompt(e.target.value)}
               onKeyDown={(e) => {
@@ -109,7 +109,7 @@ export default function PromptPage() {
               as="button"
               onClick={handleSubmit}
             >
-              {loading ? 'loading...' : 'Submit Prompt'}
+              {loading ? 'Analyzing...' : 'Submit Prompt'}
             </HoverBorderGradient>
             </div>
         </div>
