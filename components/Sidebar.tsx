@@ -25,7 +25,7 @@ export default function Sidebar() {
         {components.map((section, index) => (
           <div key={index} className="mb-8">
             <h2 className="font-semibold text-lg mb-3">
-              {section.title || section.Installation || section.Components}
+              {section.Installation || section.Components}
             </h2>
             <ul className="space-y-2">
               {section.children.map((child, idx) => (
