@@ -10,7 +10,6 @@ interface FooterProps {
 const navLinks = [
   { name: 'Components', href: '/components' },
   { name: 'Docs', href: '/docs' },
-  { name: 'Showcase', href: '/showcase' },
 ] as const;
 
 const Footer: React.FC<FooterProps> = ({

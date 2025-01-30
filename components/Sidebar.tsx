@@ -9,7 +9,6 @@ export default function Sidebar() {
   const navLinks = [
     { name: 'Components', href: '/components' },
     { name: 'Docs', href: '/docs' },
-    { name: 'Showcase', href: '/showcase' },
     { name: 'Ai', href: '/Ai' },
   ] as const;
 

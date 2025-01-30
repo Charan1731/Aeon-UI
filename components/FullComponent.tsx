@@ -61,7 +61,7 @@ const FullComponent: React.FC<PageProps> = ({
       </div>
       <div>
         <div>
-          <h1 className="sm:text-2xl sm:mt-10 mt-4 text-lg font-bold ">
+          <h1 className="sm:text-3xl sm:mt-10 mt-4 text-lg font-bold ">
             Installation
           </h1>
           <p className="mt-2 border border-b-0 dark:border-gray-700 border-gray-300"></p>
