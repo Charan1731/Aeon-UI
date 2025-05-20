@@ -88,10 +88,6 @@ export default function PromptPage() {
     }
   };
 
-  const useExamplePrompt = (example: string) => {
-    setPrompt(example);
-  };
-
   // Particle effect component - but with proper red-400 colors
   const ParticleBackground = () => {
     return (
@@ -314,7 +310,7 @@ export default function PromptPage() {
                     }}
                     whileTap={{ scale: 0.98 }}
                     className="text-sm p-3 rounded-lg bg-white/40 dark:bg-gray-800/40 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200/50 dark:border-gray-700/50 transition-all text-left shadow-sm"
-                    onClick={() => useExamplePrompt(example)}
+                    onClick={() => setPrompt(example)}
                   >
                     {example}
                   </motion.button>

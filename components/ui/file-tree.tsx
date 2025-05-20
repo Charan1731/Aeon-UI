@@ -347,18 +347,18 @@ const CollapseButton = forwardRef<
     };
 
     elements.forEach(expandTree);
-  }, []);
+  }, [setExpandedItems]);
 
   const closeAll = useCallback(() => {
     setExpandedItems?.([]);
-  }, []);
+  }, [setExpandedItems]);
 
   useEffect(() => {
     console.log(expandAll);
     if (expandAll) {
       expendAllTree(elements);
     }
-  }, [expandAll]);
+  }, [expandAll, expendAllTree, elements]);
 
   return (
     <Button
