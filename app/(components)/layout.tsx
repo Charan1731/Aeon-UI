@@ -25,7 +25,7 @@ import {
   FaCircle
 } from 'react-icons/fa';
 
-// Component icon mapping for visual consistency
+
 const getComponentIcon = (label: string) => {
   const iconMap: { [key: string]: JSX.Element } = {
     'Installation': <FaCode className="w-4 h-4" />,
@@ -76,8 +76,16 @@ const getComponentIcon = (label: string) => {
   return iconMap[label] || <FaCode className="w-4 h-4" />;
 };
 
-// Get section title from the object keys
-const getSectionTitle = (section: any) => {
+interface ComponentSection {
+  Installation?: string;
+  Components?: string;
+  children: Array<{
+    label: string;
+    Link: string;
+  }>;
+}
+
+const getSectionTitle = (section: ComponentSection) => {
   if (section.Installation) return 'Getting Started';
   if (section.Components) return 'Components';
   return 'Section';
