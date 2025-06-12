@@ -64,7 +64,7 @@ export default function PromptPage() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:3000/api/ai', {
+      const response = await axios.post('https://aeon-ui.vercel.app//api/ai', {
         prompt: preprompt + prompt,
       });
 
