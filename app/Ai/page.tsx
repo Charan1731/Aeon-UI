@@ -146,7 +146,7 @@ export default function PromptPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center justify-center gap-3 mb-4 mt-10">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}

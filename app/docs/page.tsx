@@ -288,7 +288,7 @@ export default function Docs() {
               </div>
               <p className="text-gray-600 dark:text-gray-400">
                 Manually copy component code, configure TailwindCSS, and install 
-                required packages as detailed in the component's installation guide.
+                required packages as detailed in the component&apos;s installation guide.
               </p>
             </motion.div>
           </div>

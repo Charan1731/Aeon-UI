@@ -39,7 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navigation />
-          <main className="">{children}</main>
+          <main className="pt-20">{children}</main>
           <Footer/>
         </ThemeProvider>
       </body>
