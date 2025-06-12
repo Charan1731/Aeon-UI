@@ -94,29 +94,48 @@ const getSectionTitle = (section: ComponentSection) => {
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
+  const totalComponents = components.reduce((total, section) => total + section.children.length, 0);
+
   return (
     <div className="flex flex-col">
-      <header className="text-center mt-10 pb-10">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-200"
-        >
-          <span className="font-bold text-red-400">
-            Aeon
-            <span className="text-gray-800 dark:text-[#E7E9EC]">-Ui</span>
-          </span>{' '}
-          Components
-        </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mt-4"
-        >
-          Explore the extensive collection of unified UI components.
-        </motion.p>
+      <header className="relative bg-gray-50/30 dark:bg-gray-900/30 border-b border-gray-200/40 dark:border-gray-700/40 -mt-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-50/20 to-transparent dark:via-red-950/10" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 py-16 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-xs font-medium text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950/20 rounded-full border border-red-200/50 dark:border-red-800/30"
+          >
+            <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+            {totalComponents} Components
+          </motion.div>
+
+          {/* Clean title */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl sm:text-5xl font-bold mb-4"
+          >
+            <span className="text-red-500">Aeon-UI</span>{' '}
+            <span className="text-gray-900 dark:text-gray-100">Components</span>
+          </motion.h1>
+          
+          {/* Simple subtitle */}
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto"
+          >
+            Beautiful, accessible React components. Copy, paste, and customize.
+          </motion.p>
+        </div>
+
+        {/* Subtle bottom border */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-px bg-gradient-to-r from-transparent via-red-400 to-transparent" />
       </header>
       
       <div className="sm:grid sm:grid-cols-6 min-h-screen">
@@ -207,7 +226,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-6">
                   <div className="text-center">
                     <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                      {components.reduce((total, section) => total + section.children.length, 0)} Components
+                      {totalComponents} Components
                     </div>
                     <div className="flex justify-center">
                       <div className="w-8 h-1 bg-gradient-to-r from-red-400 to-red-500 rounded-full"></div>

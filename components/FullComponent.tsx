@@ -1,3 +1,4 @@
+'use client'
 import H1 from '@/components/ui/heading';
 import P2 from '@/components/ui/Paragraph';
 import P1 from '@/components/ui/Paragraph1';
@@ -8,6 +9,7 @@ import { CodeBlockDemo } from '@/components/ui/Codeblock';
 import { Installation } from './Installation';
 import { Snippet } from '@nextui-org/snippet';
 import { FaTerminal } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 interface PageProps {
   heading: string;
@@ -33,58 +35,101 @@ const FullComponent: React.FC<PageProps> = ({
   tab1Extra
 }) => {
   return (
-    <div className="md:px-20 px-4">
-      <div className="flex flex-col md:space-y-2 space-y-1">
-        <H1 H1={heading} />
-        <div className="flex flex-col md:space-y-1">
-          <P1 P1={description} />
-          <P2 Lib={library} />
-        </div>
+    <div className="relative min-h-screen bg-gray-50/50 dark:bg-gray-900/50">
+      {/* Clean Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-50/20 via-white to-red-50/10 dark:from-red-950/10 dark:via-gray-900 dark:to-red-950/5" />
+        <div className="absolute top-40 right-40 w-64 h-64 bg-gradient-to-br from-red-100/30 to-red-200/20 dark:from-red-900/20 dark:to-red-800/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 left-40 w-48 h-48 bg-gradient-to-tr from-red-50/40 to-red-100/30 dark:from-red-950/15 dark:to-red-900/10 rounded-full blur-2xl" />
       </div>
-      <div className="mt-4 w-full max-h-full overflow-auto">
-        <CodePreview
-          tab1Content={
-            <div>
-             {Tab1}
-            </div>
-          }
-          tab2Content={
-            <div className="">
-              <CodeBlockDemo
-                code={code}
-                filename={filename}
-                highlightLines={[]}
-              />
-            </div>
-          }
-        />
-      </div>
-      <div>
-        <div>
-          <h1 className="sm:text-3xl sm:mt-10 mt-4 text-lg font-bold ">
-            Installation
-          </h1>
-          <p className="mt-2 border border-b-0 dark:border-gray-700 border-gray-300"></p>
-        </div>
-        <div className="mt-4">
-          <Installation
-            tab1Content={
-              <div className="w-full">
-                <div className="bg-gray-100 dark:bg-zinc-800 p-4 rounded-md overflow-x-auto">
-                  <Snippet color="default" symbol={<FaTerminal />}>
-                    {cli}
-                  </Snippet>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+        {/* Clean Header Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <H1 H1={heading} />
+          <div className="mt-4 space-y-2">
+            <P1 P1={description} />
+            <P2 Lib={library} />
+          </div>
+        </motion.div>
+
+        {/* Clean Component Demo Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-16"
+        >
+          <div className="relative rounded-xl border border-gray-200/60 dark:border-gray-700/60 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg overflow-hidden">
+            <CodePreview
+              tab1Content={
+                <div className="relative">
+                  {Tab1}
                 </div>
-                <div>
-                  {tab1Extra}
+              }
+              tab2Content={
+                <div className="relative">
+                  <CodeBlockDemo
+                    code={code}
+                    filename={filename}
+                    highlightLines={[]}
+                  />
                 </div>
-              </div>
-            }
-            tab2Content={<div>{child}</div>}
-          />
-        </div>
+              }
+            />
+          </div>
+        </motion.div>
+
+        {/* Clean Installation Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="space-y-6"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+              <FaTerminal className="w-4 h-4 text-red-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+              Installation
+            </h2>
+          </div>
+          
+          <div className="rounded-xl border border-gray-200/60 dark:border-gray-700/60 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg overflow-hidden">
+            <Installation
+              tab1Content={
+                <div className="p-6">
+                  <div className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg border border-gray-200/50 dark:border-gray-700/50 overflow-x-auto">
+                    <Snippet 
+                      color="default" 
+                      symbol={<FaTerminal className="text-red-500" />}
+                      className="bg-transparent"
+                    >
+                      {cli}
+                    </Snippet>
+                  </div>
+                  {tab1Extra && (
+                    <div className="mt-4">
+                      {tab1Extra}
+                    </div>
+                  )}
+                </div>
+              }
+              tab2Content={
+                <div className="p-6">
+                  {child}
+                </div>
+              }
+            />
+          </div>
+        </motion.div>
       </div>
-      <div></div>
     </div>
   );
 };

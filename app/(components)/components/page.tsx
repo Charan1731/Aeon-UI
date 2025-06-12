@@ -25,7 +25,6 @@ import {
   FaFire
 } from 'react-icons/fa';
 import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
-import { Spotlight } from '@/components/ui/spotlight';
 
 const ComponentsPage = () => {
   const featuredComponents = [
@@ -114,10 +113,12 @@ const ComponentsPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Spotlight Effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        <Spotlight className="hidden sm:block top-0 left-1/4" fill="red" />
+    <div className="relative min-h-screen bg-gray-50/50 dark:bg-gray-900/50">
+      {/* Clean Background Effects */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-50/20 via-white to-red-50/10 dark:from-red-950/10 dark:via-gray-900 dark:to-red-950/5" />
+        <div className="absolute top-40 right-40 w-80 h-80 bg-gradient-to-br from-red-100/20 to-red-200/10 dark:from-red-900/15 dark:to-red-800/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 left-40 w-64 h-64 bg-gradient-to-tr from-red-50/30 to-red-100/20 dark:from-red-950/10 dark:to-red-900/5 rounded-full blur-2xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 py-12">
