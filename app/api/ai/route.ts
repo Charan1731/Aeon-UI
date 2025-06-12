@@ -11,7 +11,7 @@ const genAI = new GoogleGenerativeAI(googleApiKey);
 export const POST = async (req: NextRequest) => {
   // Add CORS headers allowing only your frontend domain
   const corsHeaders = {
-    'Access-Control-Allow-Origin': 'https://aeon-ui.vercel.app//api/ai',
+    'Access-Control-Allow-Origin': 'http://localhost:3000',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };

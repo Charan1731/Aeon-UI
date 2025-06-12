@@ -18,7 +18,6 @@ export default function PromptPage() {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Example prompts that users can try
   const examplePrompts = [
     "Create a navigation bar with dropdown menu",
     "Build a hero section with animated gradient background",
@@ -65,7 +64,7 @@ export default function PromptPage() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('https://aeon-ui.vercel.app//api/ai', {
+      const response = await axios.post('http://localhost:3000/api/ai', {
         prompt: preprompt + prompt,
       });
 
