@@ -11,8 +11,6 @@ import {
   TextRevealCardTitle,
 } from './ui/text-reveal-card';
 
-
-import { MarqueeDemo } from './Marque';
 import { AnimatedShinyTextDemo } from './ui/AnimatedShinyText';
 import { FlipWords } from './ui/flip-words';
 
@@ -114,8 +112,6 @@ export function Hero() {
               </span>
             </HoverBorderGradient>
           </motion.div>
-
-          {/* Technology Stack FlipWords */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -151,27 +147,6 @@ export function Hero() {
           </motion.div>
         </div>
       </motion.div>
-
-      <div className="flex justify-center mt-12">
-        {/* <div>
-          <h1 className="flex justify-center align-middle  text-4xl sm:text-6xl text-gray-600 dark:text-gray-400 font-bold ">
-            Showcase
-          </h1>
-          <p className="flex justify-center text-xl font-medium dark:text-gray-400 text-gray-600 mt-4 px-4">
-            Explore examples to see how these components can be integrated into
-            your projects.
-          </p>
-        </div> */}
-      </div>
-      {/* <div className="flex items-center justify-center px-4 w-full  mb-4 align-middle">
-        <Link href="https://www.producthunt.com/posts/aeon-ui?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-ui&#0045;Ui" target="_blank">
-          <img
-        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=746617&theme=dark"
-        alt="U&#0205;&#0045;Ui - Multiple&#0032;UI&#0032;Libraries&#0044;&#0032;One&#0032;Platform&#0044;&#0032;Simplified | Product Hunt"
-        className="w-auto h-auto z-50"
-          />
-        </Link>
-      </div> */}
 
       <div className="flex justify-center mt-24">
         <div className="text-center">
@@ -210,9 +185,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Enhanced Text Reveal Showcase */}
       <div className="relative my-24 bg-gradient-to-br from-red-50/40 via-white to-orange-50/40 dark:from-red-950/20 dark:via-gray-900 dark:to-orange-950/20 overflow-hidden">
-        {/* Background decoration */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-72 h-72 bg-red-400/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-400/10 rounded-full blur-3xl"></div>
@@ -253,7 +226,6 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Feature highlights */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -297,7 +269,6 @@ export function Hero() {
       </div>
 
       <div className="relative py-20 px-4 bg-gradient-to-br from-gray-50/50 via-white to-gray-50/50 dark:from-gray-900/50 dark:via-black dark:to-gray-900/50">
-        {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-red-400/10 to-orange-400/10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
@@ -424,40 +395,6 @@ export function Hero() {
                 </TextRevealCard>
               </motion.div>
             </div>
-
-            {/* Additional demo cards */}
-            {/* <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16"
-            >
-              <TextRevealCard
-                text="Build Amazing Interfaces"
-                revealText="Create Stunning User Experiences ✨"
-                className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-950/30 dark:to-red-900/20 border border-red-200 dark:border-red-800/30"
-              >
-                <TextRevealCardTitle className="text-red-600 dark:text-red-400 font-bold">
-                  🎨 Design Excellence
-                </TextRevealCardTitle>
-                <TextRevealCardDescription className="text-gray-600 dark:text-gray-300">
-                  Discover the power of interactive design with this engaging text reveal component
-                </TextRevealCardDescription>
-              </TextRevealCard>
-
-              <TextRevealCard
-                text="Code with Confidence"
-                revealText="Ship Faster, Build Better 🚀"
-                className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/20 border border-blue-200 dark:border-blue-800/30"
-              >
-                <TextRevealCardTitle className="text-blue-600 dark:text-blue-400 font-bold">
-                  ⚡ Developer Experience
-                </TextRevealCardTitle>
-                <TextRevealCardDescription className="text-gray-600 dark:text-gray-300">
-                  Experience smooth animations and responsive interactions across all devices
-                </TextRevealCardDescription>
-              </TextRevealCard>
-            </motion.div> */}
           </div>
         </div>
       </div>
