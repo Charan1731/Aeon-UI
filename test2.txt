@@ -1,0 +1,6 @@
+5 11
+C C C . C C C . C C C
+C . C . C . C . C . C
+C R C R C R R R C R R
+C . C . C . C . C . C
+C . C C C . C C C . C
