@@ -1,6 +1,0 @@
-5 5
-. . R . .
-C C C C C
-. . R . C
-C C R C C
-. . R . .

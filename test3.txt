@@ -1,8 +1,0 @@
-7 6
-C C C R C C
-. . . R . C
-C C C C C C
-C . . R . .
-C C C C C C
-. . . R . C
-C C C R C C

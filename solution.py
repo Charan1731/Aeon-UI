@@ -2,18 +2,17 @@
 Cable Wrap Problem Solution
 
 This solution calculates the minimum number of switches needed to unwrap a cable
-from around a rod using topological winding number concept.
+from around a rod by computing the topological winding number.
 
 Algorithm:
-1. Parse the grid and identify cable cells (C) and rod cells (R)
-2. Rod cells with 'R' mark intersections where rod is above cable
-3. Determine rod orientation (horizontal or vertical)
-4. Trace the complete cable path from edge to edge
-5. Calculate winding number by counting signed crossings
-6. Return absolute value of winding number as the result
+1. Parse grid to find cable cells ('C') and rod cells ('R')
+2. Determine rod orientation (horizontal or vertical)
+3. Use BFS to find the longest cable path between edge cells
+4. Calculate winding number by counting signed crossings
+5. Return absolute value of winding number
 
-Time Complexity: O(N*M) where N,M are grid dimensions
-Space Complexity: O(N*M) for storing the grid and path
+Time Complexity: O(N*M*E) where E is number of edge cells
+Space Complexity: O(N*M) for storing grid and paths
 """
 
 from collections import deque
@@ -27,142 +26,114 @@ def solve():
         grid.append(row)
     
     # Find cable and rod cells
-    cable_or_intersection = set()
+    cable_cells = set()
     rod_cells = set()
     
     for i in range(n):
         for j in range(m):
             if grid[i][j] == 'C':
-                cable_or_intersection.add((i, j))
+                cable_cells.add((i, j))
             elif grid[i][j] == 'R':
                 rod_cells.add((i, j))
-                cable_or_intersection.add((i, j))  # R means rod is above cable at intersection
     
     if not rod_cells:
         print(0)
         return
     
-    # Determine rod orientation and axis
+    all_cable = cable_cells | rod_cells
+    
+    # Determine rod orientation
     rod_list = sorted(rod_cells)
     if len(rod_list) > 1:
         if rod_list[0][0] == rod_list[1][0]:
-            rod_orientation = 'horizontal'
-            rod_axis = rod_list[0][0]
+            rod_horizontal = True
+            rod_line = rod_list[0][0]
         else:
-            rod_orientation = 'vertical'
-            rod_axis = rod_list[0][1]
+            rod_horizontal = False
+            rod_line = rod_list[0][1]
     else:
-        rod_orientation = 'vertical'
-        rod_axis = rod_list[0][1]
+        rod_horizontal = False
+        rod_line = rod_list[0][1]
     
-    # Build complete cable path - try different starting points
-    edge_cells = []
-    for i, j in cable_or_intersection:
-        if i == 0 or i == n-1 or j == 0 or j == m-1:
-            edge_cells.append((i, j))
+    # Find edge cells
+    edge_cells = [pos for pos in all_cable if pos[0] == 0 or pos[0] == n-1 or pos[1] == 0 or pos[1] == m-1]
     
-    if len(edge_cells) < 1:
+    if len(edge_cells) < 2:
         print(0)
         return
     
-    def try_path_from(start):
-        """Try to trace cable path from given start point"""
-        path = [start]
-        visited = {start}
-        current = start
-        
-        while len(visited) < len(cable_or_intersection):
-            found = False
-            # First try non-rod neighbors
-            for di, dj in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
-                ni, nj = current[0] + di, current[1] + dj
-                if (ni, nj) in cable_or_intersection and (ni, nj) not in visited and (ni, nj) not in rod_cells:
-                    path.append((ni, nj))
-                    visited.add((ni, nj))
-                    current = (ni, nj)
-                    found = True
+    # BFS to find longest path
+    def bfs_longest_path():
+        best = []
+        for start in edge_cells[:min(30, len(edge_cells))]:
+            queue = deque([(start, [start], {start})])
+            
+            while queue:
+                current, path, visited = queue.popleft()
+                
+                if len(path) > len(best):
+                    best = path[:]
+                
+                r, c = current
+                for dr, dc in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+                    nr, nc = r + dr, c + dc
+                    if (nr, nc) in all_cable and (nr, nc) not in visited:
+                        new_visited = visited | {(nr, nc)}
+                        queue.append(((nr, nc), path + [(nr, nc)], new_visited))
+                
+                # Limit queue size to avoid explosion
+                if len(queue) > 10000:
                     break
-            
-            # If no non-rod neighbors, try rod neighbors
-            if not found:
-                for di, dj in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
-                    ni, nj = current[0] + di, current[1] + dj
-                    if (ni, nj) in cable_or_intersection and (ni, nj) not in visited:
-                        path.append((ni, nj))
-                        visited.add((ni, nj))
-                        current = (ni, nj)
-                        found = True
-                        break
-            
-            if not found:
-                break
         
-        return path
+        return best
     
-    # Try starting from different edge cells, choose the longest path
-    cable_path = []
-    for start_cell in edge_cells:
-        if start_cell not in rod_cells:  # Prefer non-rod starting points
-            path = try_path_from(start_cell)
-            if len(path) > len(cable_path):
-                cable_path = path
+    cable_path = bfs_longest_path()
     
-    # If still not complete, try rod edge cells too
-    if len(cable_path) < len(cable_or_intersection):
-        for start_cell in edge_cells:
-            path = try_path_from(start_cell)
-            if len(path) > len(cable_path):
-                cable_path = path
+    if not cable_path:
+        print(0)
+        return
     
-    # Count crossings using winding number algorithm
+    # Calculate winding
     winding = 0
     
-    for i, pos in enumerate(cable_path):
+    for i in range(len(cable_path)):
+        pos = cable_path[i]
         if pos not in rod_cells:
             continue
         
-        # This is an intersection - determine if cable is above or below
-        cable_above = (grid[pos[0]][pos[1]] == 'C')
+        # Find prev/next non-rod positions
+        prev_idx = i - 1
+        while prev_idx >= 0 and cable_path[prev_idx] in rod_cells:
+            prev_idx -= 1
+        prev_pos = cable_path[prev_idx] if prev_idx >= 0 else None
         
-        # Find non-rod neighbors in path to determine crossing direction
-        prev_pos = None
-        next_pos = None
-        
-        for j in range(i-1, -1, -1):
-            if cable_path[j] not in rod_cells:
-                prev_pos = cable_path[j]
-                break
-        
-        for j in range(i+1, len(cable_path)):
-            if cable_path[j] not in rod_cells:
-                next_pos = cable_path[j]
-                break
+        next_idx = i + 1
+        while next_idx < len(cable_path) and cable_path[next_idx] in rod_cells:
+            next_idx += 1
+        next_pos = cable_path[next_idx] if next_idx < len(cable_path) else None
         
         if not prev_pos or not next_pos:
             continue
         
-        # Check if this is a true crossing (cable goes from one side of rod to other)
-        if rod_orientation == 'horizontal':
-            # Rod is horizontal, check if cable crosses vertically
-            prev_above_rod = prev_pos[0] < rod_axis
-            next_above_rod = next_pos[0] < rod_axis
+        cable_above = grid[pos[0]][pos[1]] == 'C'
+        
+        if rod_horizontal:
+            prev_side = prev_pos[0] < rod_line
+            next_side = next_pos[0] < rod_line
             
-            if prev_above_rod != next_above_rod:
-                # Cable crosses the rod
-                if prev_above_rod:  # Crossing from top to bottom
+            if prev_side != next_side:
+                if prev_side:
                     winding += 1 if cable_above else -1
-                else:  # Crossing from bottom to top
+                else:
                     winding += -1 if cable_above else 1
-        else:  # vertical rod
-            # Rod is vertical, check if cable crosses horizontally
-            prev_left_rod = prev_pos[1] < rod_axis
-            next_left_rod = next_pos[1] < rod_axis
+        else:
+            prev_side = prev_pos[1] < rod_line
+            next_side = next_pos[1] < rod_line
             
-            if prev_left_rod != next_left_rod:
-                # Cable crosses the rod
-                if prev_left_rod:  # Crossing from left to right
+            if prev_side != next_side:
+                if prev_side:
                     winding += 1 if cable_above else -1
-                else:  # Crossing from right to left
+                else:
                     winding += -1 if cable_above else 1
     
     print(abs(winding))
